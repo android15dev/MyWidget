@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.opennotification">
+
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+
+    <application android:label="@string/app_name">
+
+        <receiver
+            android:name=".NotificationProvider"
+            android:icon="@drawable/bell"
+            android:label="Notification">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".RecentItemsProvider"
+            android:icon="@drawable/recent"
+            android:label="Recent Items">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/recent_info" />
+        </receiver>
+    </application>
+
+</manifest>
